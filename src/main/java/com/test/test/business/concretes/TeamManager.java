@@ -2,6 +2,7 @@ package com.test.test.business.concretes;
 
 import com.test.test.business.abstracts.TeamService;
 import com.test.test.business.requests.CreateTeamRequest;
+import com.test.test.business.requests.UpdateTeamRequest;
 import com.test.test.business.responses.GetAllTeamsResponse;
 import com.test.test.dataAccess.abstracts.TeamRepository;
 import com.test.test.entities.Team;
@@ -48,5 +49,13 @@ public class TeamManager implements TeamService {
     @Override
     public void delete(int id) {
         teamRepository.deleteById(id);
+    }
+
+    @Override
+    public void update(int id, UpdateTeamRequest updateTeamRequest) {
+        var team = teamRepository.getReferenceById(id);
+        team.setWinCount(updateTeamRequest.getWinCount());
+        team.setLoseCount(updateTeamRequest.getLoseCount());
+        teamRepository.save(team);
     }
 }

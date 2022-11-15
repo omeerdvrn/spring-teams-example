@@ -2,6 +2,7 @@ package com.test.test.webApi;
 
 import com.test.test.business.abstracts.TeamService;
 import com.test.test.business.requests.CreateTeamRequest;
+import com.test.test.business.requests.UpdateTeamRequest;
 import com.test.test.business.responses.GetAllTeamsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -34,4 +35,8 @@ public class TeamsController {
         this.teamService.delete(id);
     }
 
+    @PutMapping(path ="/update")
+    public void update(@RequestParam("id")int id, @RequestBody()UpdateTeamRequest updateTeamRequest){
+        this.teamService.update(id, updateTeamRequest);
+    }
 }
