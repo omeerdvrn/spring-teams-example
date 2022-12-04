@@ -17,7 +17,7 @@ const App = () => {
         setLoading(false);
       })
   }, []);
-  
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <div className="App">
         <div className="container">
-          <Teams teams={teams}/>
+          <Teams teams={teams} />
         </div>
     </div>
   );
